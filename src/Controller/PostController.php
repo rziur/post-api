@@ -116,20 +116,20 @@ class PostController extends AbstractController
 
     /**
      * @Route(
-     *      "posts/{id}", 
-     *      name="update_post", 
+     *      "posts/{id}",
+     *      name="update_post",
      *      methods={"PUT"})
      */
     public function updatePost($id, Request $request): JsonResponse
     {
-        
+
         $body = json_decode($request->getContent(), true);
 
         $title = isset($body['title']) ? $body['title'] : null;
         $body_var = isset($body['body']) ? $body['body'] : null;
 
         $updatedPost = $this->postService->update($id, $title, $body_var);
-    
+
         return new JsonResponse($updatedPost->toArray(), Response::HTTP_OK);
     }
 

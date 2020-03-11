@@ -14,8 +14,6 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        //$faker = Factory::create();
-
         $user_1_id = Uuid::uuid4();
         $user_1 = User::create($user_1_id, 'user_1', 'user_1@gmail.com');
         $manager->persist(
